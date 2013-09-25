@@ -1,6 +1,6 @@
 class matematica(object):
 	
-	titulo = 'calculadora con programacion orientada a objeto'
+	titulo = 'calculadora'
 	operaciones = ['division','multiplicacion','suma','resta']
 	espacio = ('=' * 80)
 	
@@ -34,7 +34,7 @@ class matematica(object):
 		try:
 			self.num1 / self.num2
 		except ZeroDivisionError:
-			print 'no puedes dividir %d entre %d' %(self.num1,self.num2)
+			print 'no puedes dividir %d entre %d\n' %(self.num1,self.num2)
 			self.division()
 		else:
 			res = self.num1 / self.num2
@@ -58,8 +58,13 @@ class matematica(object):
 	def numeros(self):
 		print self.espacio
 		print 'ingrese los numeros'
-		self.num1 = int(raw_input('>> '))
-		self.num2 = int(raw_input('>> '))
+		try:
+			self.num1 = int(raw_input('>> '))
+			self.num2 = int(raw_input('>> '))
+		except ValueError:
+			print 'No es un valor valido.\nPor favor vuelva a intentelo de nuevo.\n'
+			self.numeros()
+		
 		
 
 operacion = matematica()
