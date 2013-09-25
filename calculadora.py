@@ -11,18 +11,19 @@ class matematica(object):
 	
 	def opc(self):
 		print 'por favor escoja una de las siguientes opciones'
+		print 'puede elegir entre escribir el nombre o el numero'
 		contador = 1
 		for x in self.operaciones:
 			print '%s(%d)' % (x,contador),
 			contador = contador + 1
 		opcion = raw_input('\n>> ')
-		if opcion == '1':
+		if opcion == '1' or opcion.lower() == 'division':
 			self.division()
-		elif opcion == '2':
+		elif opcion == '2' or opcion.lower() == 'multiplicacion':
 			self.multiplicacion()
-		elif opcion == '3':
+		elif opcion == '3' or opcion.lower() == 'suma':
 			self.suma()
-		elif opcion == '4':
+		elif opcion == '4' or opcion.lower() == 'resta':
 			self.resta()
 		else:
 			print 'opcion invalida'
